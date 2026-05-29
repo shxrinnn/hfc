@@ -172,16 +172,43 @@ function BrainFitness({ uid }: { uid: string }) {
 
 function Tile({ label, value, sub }: { label: string; value: string; sub: string }) {
   return (
-    <div className="rounded-lg bg-muted p-4">
-      <p className="text-xs uppercase tracking-wide text-muted-foreground">{label}</p>
-      <p className="text-3xl font-bold mt-1">{value}</p>
-      <p className="text-xs text-muted-foreground">{sub}</p>
+    <div
+      className="rounded-lg bg-muted p-4"
+      style={{
+        textAlign: "center",
+        padding: "2rem",
+        background: "radial-gradient(circle at center, rgba(0,230,118,0.08) 0%, transparent 70%)",
+        borderRadius: "20px",
+        border: "1px solid rgba(0,230,118,0.2)",
+      }}
+    >
+      <p className="text-xs uppercase tracking-wide text-muted-foreground">
+        {label}
+      </p>
+
+      <div
+        style={{
+          fontSize: "4rem",
+          fontWeight: 900,
+          color: "#00E676",
+          animation: "countUp 1s ease-out forwards",
+          textShadow: "0 0 30px rgba(0,230,118,0.6)",
+          marginTop: "0.5rem",
+        }}
+      >
+        {value}
+      </div>
+
+      <p
+        style={{
+          color: "#888",
+          fontSize: "0.85rem",
+          letterSpacing: "2px",
+          marginTop: "0.5rem",
+        }}
+      >
+        {sub}
+      </p>
     </div>
   );
-}
-function bmiLabel(b: number) {
-  if (b < 18.5) return "Underweight";
-  if (b < 25) return "Healthy";
-  if (b < 30) return "Overweight";
-  return "Obese";
 }
