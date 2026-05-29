@@ -99,11 +99,20 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Outlet />
-        <Toaster />
+        <div
+          style={{
+            animation: "pageFadeIn 0.35s ease-out forwards",
+            minHeight: "100vh",
+            backgroundColor: "#000000",
+          }}
+        >
+          <Outlet />
+          <Toaster />
+        </div>
       </AuthProvider>
     </QueryClientProvider>
   );
